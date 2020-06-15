@@ -33,4 +33,17 @@ module logicalunit(
          
       //Todo: add you logic here
 
+assign ab={a,b};
+
+assign out = func[0] ? (ab==2'b00):
+       func[1] ? (ab==2'b01): func[2] ? (ab==2'b10): func[3] ? (ab==2'b11):
+
+//default
+
+2'b11;
+
+
+
+
+
 endmodule
