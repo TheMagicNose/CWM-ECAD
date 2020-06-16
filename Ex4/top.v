@@ -15,4 +15,35 @@
 //
 //  You need to write the whole file.
 //////////////////////////////////////////////////////////////////////////////////
+ `timescale 1ns / 100ps
+ 
+ module dice(
+   input rst,
+   input clc,
+   input button,
+   output reg [2:0] throw
+ ); 
 
+
+always@(posedge clk) begin
+
+if(rst)
+throw <= 3'b00;
+
+else begin
+if ((throw == 3'b00) | (throw=3'b111))
+throw <= 3'b001;
+
+if (throw < 3'b110)
+throw <= throw + button;
+
+else
+throw <= button ? 3'b001 : throw;
+
+end
+
+end
+
+endmodule
+
+   
