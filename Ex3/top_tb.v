@@ -14,14 +14,47 @@ module top_tb(
     );
     
 //Todo: Parameters
+parameter CLK_PERIOD = 10;
 
 //Todo: Regitsers and wires
+reg err;
+reg clk;
+reg direction;
+reg enable;
+reg rst;
+reg [7:0] counter_out;
+reg [7:0] counter_out_prev;
+
 
 //Todo: Clock generation
+ initial
+    begin
+       clk = 1'b0;
+       forever
+         #(CLK_PERIOD/2) clk=~clk;
+     end
 
 //Todo: User logic
+
+initial begin
+err=0;
+enable=0;
+rst=1;
+clk=0;
+direction=1;
+
+forever begin 
+ 
+
+
     
 //Todo: Finish test, check for success
+ initial begin
+        #50 
+        if (err==0)
+          $display("***TEST PASSED! :) ***");
+        $finish;
+      end
 
 //Todo: Instantiate counter module
  
