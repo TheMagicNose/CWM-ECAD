@@ -6,7 +6,7 @@
 // Description: A testbench module to test Ex4 - Electronic Dice
 // You need to write the whole file
 //////////////////////////////////////////////////////////////////////////////////
-timescale 1ns / 100ps
+`timescale 1ns / 100ps
 
 module top_tb(
 );
@@ -80,20 +80,20 @@ end
 end
 
 initial begin
-        #CLK PERIOD 
+        #20 
         if (err==0)
           $display("***TEST PASSED! :) ***");
         $finish;
       end
 
 dice top(
-.clk (clk)
-.rst (rst)
-.button (button)
+.clk (clk),
+.rst (rst),
+.button (button),
 .throw (throw)
 );
 
-end module
+endmodule
 
 
  
