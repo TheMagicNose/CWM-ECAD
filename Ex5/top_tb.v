@@ -14,9 +14,9 @@ module top_tb(
 parameter CLK_PERIOD = 20;
 
 reg clk;
-reg red;
-reg amber;
-reg green;
+wire red;
+wire amber;
+wire green;
 reg err;
 reg [2:0] prev;
 
@@ -36,7 +36,7 @@ forever begin
 prev = {red,amber,green};
 #CLK_PERIOD;
 
-if((red==1'b0 && amber=1'0 && green==1'b0) || (red==1'b1 && amber==1'b0 && green==1'b1) || (red==1'b0 && amber==1'b1 && green==1'b1) || (red==1'b1 && amber==1'b1 && green==1'b1))
+if((red==1'b0 && amber==1'b0 && green==1'b0) || (red==1'b1 && amber==1'b0 && green==1'b1) || (red==1'b0 && amber==1'b1 && green==1'b1) || (red==1'b1 && amber==1'b1 && green==1'b1))
 begin
 $display("***TEST FAILED! Fobidden State");
 err = 1;
@@ -53,12 +53,12 @@ end
 
 initial begin
         #50
-        if (err==0)
+        if (err == 0)
           $display("***TEST PASSED! :) ***");
         $finish;
       end
 
-Traffic_lights top(
+Traffic_Lights top(
 .clk (clk),
 .red (red),
 .amber (amber),
