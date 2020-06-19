@@ -12,5 +12,15 @@
 //  outputs:
 //           result[4:0]
 //////////////////////////////////////////////////////////////////////////////////
+`timescale 1ns/100ps
+
+module Multiplyer(
+
+input clk,
+input [2:0] a,
+input [2:0] b,
+input read,
+output [4:0] result
+);
 
 
