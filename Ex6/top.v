@@ -33,11 +33,11 @@ output wire [2:0] result
 wire [2:0] roll;
 wire [2:0] lights;
 
-Dice Dice_out(rst,clk,button,roll);
+dice dice_out(rst,clk,button,roll);
 
-Traffic_lights Traffic_Lights_out(clk,lights[2],lights[1],lights[0]);
+Traffic_Lights Traffic_Lights_out(clk,lights[2],lights[1],lights[0]);
 
-Multiplexer Mulitiplexer_outcome(clk,sel,result,roll,lights);
+mux mux_outcome(clk,sel,result,roll,lights);
 
 endmodule
 

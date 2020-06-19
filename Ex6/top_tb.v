@@ -46,13 +46,10 @@ begin
 $display("***TEST FAILED! Should be dice result");
 err = 1;
 end
-if((sel == 0) & (result != roll_prev))
-begin
-$display("***TEST FAILED! Should be dice result");
-err = 1;
-end
 
-forever begin 
+
+
+ 
 if((sel == 1) & (result != lights_prev))
 begin
 $display("***TEST FAILED! Should be traffic lights result");
